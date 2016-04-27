@@ -3,8 +3,8 @@
 <head>
 	<title>Registrarse</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="style/basic.css">
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" href="../style/basic.css">
+	<link rel="shortcut icon" href="../favicon.ico">
 </head>
 <body>
 <?php
@@ -68,7 +68,7 @@
 		}
 		if ($valido){
 			//REALIZAR LA CONEXION CON LA BASE DE DATOS
-			include("Conexion.php");
+			include("../Conexion.php");
 			$conn = mysqli_connect($host, $user, $pw, $dbname);
 			if (!$conn){
 				die("Connection Failed ". mysqli_connect_error());
@@ -112,7 +112,7 @@
 </div>
 <div id="contenido">
 <div id="imagen">
-	<img src="images/imagen.png" width="200px" height="200px">
+	<img src="../images/imagen.png" width="200px" height="200px">
 </div>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 	<div id="inputs">

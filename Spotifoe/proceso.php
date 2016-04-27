@@ -35,7 +35,7 @@
 	}
 	elseif (isset($_POST['btnreg']))
 	{
-		header("Location:RegUs.php");
+		header("Location:manejoUsuarios/registrarUsuario.php");
 	}
 	else
 	{
