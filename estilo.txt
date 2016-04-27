@@ -6,3 +6,4 @@
 -	Los nombres de clases comenzarán con mayúscula.
 -	Las constantes se escribirán con letras mayúsculas.
 -	Utilizar los niveles de indentacion apropiados, es decir que cuando se abran las llaves el código dentro de ellas estará en el siguiente nivel de indentacion
+-	Usar una linea por instruccion.
