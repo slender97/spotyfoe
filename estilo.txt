@@ -1,0 +1,8 @@
+-	Usar llaves después de funciones y estructuras de control sin importar la cantidad de instrucciones que encierren.
+-	Nombres de variables descriptivos, comenzando siempre en minúscula y comenzando cada nueva palabra en una mayúscula.
+-	Nombres de archivos descriptivos, comenzando siempre en minúscula y comenzando cada nueva palabra en una mayúscula.
+-	Cuando se usen llaves, la primera llave se usara en la misma línea de la función o estructura de control que la llame.
+-	Al declarar cadenas de caracteres, se usarán comillas dobles a menos que estas se necesiten dentro la cadena.
+-	Los nombres de clases comenzarán con mayúscula.
+-	Las constantes se escribirán con letras mayúsculas.
+-	Utilizar los niveles de indentacion apropiados, es decir que cuando se abran las llaves el código dentro de ellas estará en el siguiente nivel de indentacion
