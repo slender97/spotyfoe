@@ -1,0 +1,135 @@
+form {
+	background-color: #000000;
+	color:#AAAAAA; 
+	font-family: tahoma; 
+	font-size: 14px; 
+	padding: 10px;
+}
+
+div#header {
+	font-family: tahoma;
+	font-size: 10px;
+	margin: -50 -50 0 -50;
+	padding: 40 20 40 0; 
+	text-align: center; 
+	background-color: #000000;
+	color:white;
+}
+
+p#titulo{
+	font-size: 30px;
+	padding-top: 50px;
+}
+
+
+div#imagen {
+	float: left;
+	padding: 70px 10px 70px 10px;
+}
+
+
+
+
+
+
+
+
+
+body {
+	margin: 0;
+}
+
+/*DISENO DE LA BARRA DE NAVEGACION DE LA IZQUIERDA*/
+ul {
+	list-style-type: none;
+   	margin: 0;
+    padding: 0;
+    width: 18%;
+    background-color: #c6c6c6;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+/*DISENO DE LOS ELEMENTOS QUE CONTIENEN EL LINK DE ENLACE*/
+li a {
+	display: block;
+	color: #000;
+	padding: 8px 0 8px 16px;
+	text-decoration: none;
+}
+
+/*PALABRA FIJA (QUE NO REDIRECCIONA) QUE ESTA EN LA PARTE SUPERIOR DE LA BARRA DE NAVEGACION*/
+li a.active {
+	background-color: #30acc1;
+	color: white;
+}
+
+/*CAMBIO DE COLOR DE LOS LINKS AL POSICIONAR EL CURSOR*/
+li a:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+
+
+
+
+
+
+
+/*Diseno del boton desplegable*/
+.dropbtn {
+	background-color: #30acc1;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/*posicionar el contenido del boton dropdown*/
+.dropdown {
+    position: relative; 
+    top: 180px;
+    left: 120px;
+	display: inline-block;
+}
+
+/*diseno del contenido que se desliega al posicionar el cursor*/
+.dropdown-content {
+    display: none;
+	position: absolute;
+	background-color: #d8d8d8;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /*para que muestre un pequeno sombreado detras del bloque que se despliega*/
+}
+
+/*Diseno de los links que se depliegan*/
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/*Cambiar el color de los links al posicionar el cursor*/
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+}
+
+/* mostrar el menu de links*/
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/*cambiar el color del boton cuando se muestra la lista de opciones*/
+	.dropdown:hover .dropbtn {
+    background-color: #09729b;
+}
+
+.imagenPlay{
+	position: relative;
+	top: 100px;
+	left: 20px;
+}
