@@ -82,12 +82,9 @@
   			</div>
 		</div>
 		<div class="imagenPlay">
-			<a href="reproductor.php">
+			<a href='interfaz_reproductor.php?codCanc= <?php echo $codCancion; ?> '>
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
-			<!--<form method="get" action="http://aprenderaprogramar.com">
-				<input name="boton1" type="image"src="images/play.png" width="55px" height="50px">
-			</form>!-->
 		</div>
 	</form>
 	</div>
@@ -96,16 +93,3 @@
 </html>
 
 
-<!--
-<select>
-  <optgroup label="Calidad De Sonido">
-  	<option value=""></option>
-    <option value="Formato WAV">Formato WAV</option>
-    <option value="Formato MP3">Formato MP3</option>
-  </optgroup>
-  <optgroup label="Listas">
-    <option value="Crear Lista De Reproduccion">Crear Lista De Reproduccion</option>
-    <option value="Seleccionar Lista">Seleccionar Lista</option>
-  </optgroup>
-</select>
-<!-->

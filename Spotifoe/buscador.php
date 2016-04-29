@@ -16,7 +16,7 @@
 	</h2>
 	
 	<div>
-		<img src = "lupa.jpg" id = "ima">
+		<img src = "images/lupa.jpg" id = "ima">
 	</div>
 	<div>
 		<form action = "buscador.php" method = "post" name = "form1" class = "center"> 
@@ -51,7 +51,7 @@
 			//echo "BD selecconada: " . " " . $dbname. "<br />";
 
 			//para cancion
-			$consulta = "SELECT * FROM CANCION WHERE Nombre = '$Nombre'";
+			$consulta = "SELECT * FROM CANCION WHERE Nombre LIKE '%$Nombre%'";
 
 			//PARA EJECUTAR LA CONSULTA:
 			$ejecutar_consulta = mysqli_query($connection, $consulta) or die ("No se pudo ejecutar la consulta en la BD.");
