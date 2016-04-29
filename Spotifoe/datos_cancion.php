@@ -15,7 +15,7 @@ $queryNombre = "SELECT nombre from cancion where Cod_cancion = ".$codCancion;
 $resulNombre = mysqli_query($conn, $queryNombre);
 $arrayNombre = mysqli_fetch_array($resulNombre);
 ?>
-<div align = "center "> <img src="images/music.jpg" alt="MUSICA" style="width:304px;height:228px;"> </div>
+<div align = "center "> <img src="music.jpg" alt="MUSICA" style="width:304px;height:228px;"> </div>
 <div align = "center"> <h1> <?php echo $songName = $arrayNombre["nombre"]?> </h1> 
 					   <h2>
 						<?php
