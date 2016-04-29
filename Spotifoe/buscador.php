@@ -16,7 +16,7 @@
 	</h2>
 	
 	<div>
-		<img src = "images/lupa.jpg" id = "ima">
+		<img src = "lupa.jpg" id = "ima">
 	</div>
 	<div>
 		<form action = "buscador.php" method = "post" name = "form1" class = "center"> 
@@ -66,7 +66,7 @@
 			<?php
 			while ($registro = mysqli_fetch_array($ejecutar_consulta))
 			{
-				echo "<li><a href='interfaz_reproductor.php?codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]."</a></li>";
+				echo "<li><a href='opciones.php?codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]."</a></li>";
 				//echo "Album: ". $registro["Cod_album"]. "   ". $registro["Fecha_lan"]. "<br />";
 			}
 			?>
