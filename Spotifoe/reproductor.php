@@ -1,7 +1,7 @@
 <?php
 include ("connection.php");
 $codCancion = $_GET['codCanc'];
-$conn = connect();
+$conn = connect("Musica");
 $queryUrl = "select calidadA from cancion where cod_cancion = ".$codCancion.";";
 $resulUrl = mysqli_query($conn, $queryUrl);
 $arrayUrl = mysqli_fetch_array($resulUrl);

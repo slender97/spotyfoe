@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php
-	include("Conexion.php");
+	include("connection.php");
 
 	
 	if(isset($_POST['Usuario']) && !empty($_POST['Usuario']) 
@@ -16,7 +16,7 @@
 		$usuario = $_POST['Usuario'];
 		$contrasenia = $_POST['Password'];
 
-		$con = mysqli_connect($host,$user,$pw,$dbname) or die("Problemas al conectar");
+		$con = connect("usuarios");
 
 		$query = mysqli_query($con,"SELECT USERNAME,PASSWORD FROM usuario WHERE USERNAME='$usuario' AND PASSWORD='$contrasenia'");
 
@@ -24,7 +24,8 @@
 
 		if(mysqli_num_rows($query) == 1)
 		{
-			echo "Iniciaste Sesion";
+			//echo "Iniciaste Sesion";
+			header("Location:buscador.php");
 
 		}
 		else

@@ -7,7 +7,7 @@ Datos de la cancion
 <?php
 include ("connection.php");
 $codCancion = $_GET['codCanc'];
-$conn = connect();
+$conn = connect("Musica");
 $queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
 $resulAlbum = mysqli_query($conn, $queryAlbum);
 $arrayAlbum = mysqli_fetch_array($resulAlbum);
@@ -21,8 +21,8 @@ $arrayNombre = mysqli_fetch_array($resulNombre);
 						<?php
 							$queryArtista = "SELECT artista.nombre FROM artista, artistacancion WHERE artista.Cod_artista = artistacancion.Cod_artista and artistacancion.Cod_cancion = ".$codCancion;
 							$resulArtista = mysqli_query($conn, $queryArtista);
-							while ($arrayArista = mysqli_fetch_array($resulArtista)) {
-								echo $arrayArista["nombre"]." ";
+							while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
+								echo $arrayArtista["nombre"]." ";
 							}
 						?>
 					   </h2> 
