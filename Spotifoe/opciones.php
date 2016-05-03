@@ -6,7 +6,8 @@
 	</title>
 	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
 	<link rel = "stylesheet" href = "style/formato2.css">
-	<link rel="shortcut icon" href="images/icon.ico">
+	<!--<link rel="shortcut icon" href="images/icon.ico">-->
+	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 <?php
@@ -37,7 +38,7 @@
 
 <ul>
   <li><a class="active" href="#">PRINCIPAL</a></li>
-  <li><a href="Inicio.html">Inicio</a></li>
+  <li><a href="manejoUsuarios/iniciarSesion.html">Inicio</a></li>
   <li><a href="">Perfil</a></li>
   <li><a href="#">Play Lists</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>

@@ -90,7 +90,7 @@
 				if (mysqli_query($conn, $sql)){
 					//AGREGADO CORRECTAMENTE
 					//¡¡¡¡¡¡¡¡¡¡ABRIR PAGINA DE INICIAR SESION!!!!!!!!!! xdxdxd
-					header("Location:../Inicio.html");
+					header("Location:iniciarSesion.html");
 				} else {
 					//echo "Error " . $sql . "<br>" . mysqli_error($conn);
 				}	
