@@ -77,7 +77,7 @@
 				<a href="https://www.google.com.bo">Formato WAV</a>
     			<a href="#">Formato MP3</a>
     			<a href="#">Ver Letra</a>
-    			<a href="#">Agregar a lista de reproduccion</a>
+    			<a href="ProcesoLista.php?codCanc=$codCancion">Agregar a lista de reproduccion</a>
     			<a href="#">Agregar a favoritos</a>
   			</div>
 		</div>
