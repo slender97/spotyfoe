@@ -83,7 +83,7 @@
   			</div>
 		</div>
 		<div class="imagenPlay">
-			<a href='interfaz_reproductor.php?codCanc= <?php echo $codCancion; ?> '>
+			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> '>
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>

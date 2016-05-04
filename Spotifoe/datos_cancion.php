@@ -1,6 +1,7 @@
 <html>
 <header>
-Datos de la cancion
+	Datos de la cancion
+	<link rel="shortcut icon" href="../favicon.ico">
 </header>
 <body>
 <font color = "white">
