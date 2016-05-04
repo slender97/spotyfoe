@@ -68,11 +68,8 @@
 		}
 		if ($valido){
 			//REALIZAR LA CONEXION CON LA BASE DE DATOS
-			include("../Conexion.php");
-			$conn = mysqli_connect($host, $user, $pw, $dbname);
-			if (!$conn){
-				die("Connection Failed ". mysqli_connect_error());
-			}
+			include("../connection.php");
+			$conn = connect("usuarios");
 			//echo "Connected successfully <br>";
 			$txtNombre = mysqli_real_escape_string($conn, $txtNombre);
 			$txtUser = mysqli_real_escape_string($conn, $txtUser);
@@ -93,7 +90,7 @@
 				if (mysqli_query($conn, $sql)){
 					//AGREGADO CORRECTAMENTE
 					//¡¡¡¡¡¡¡¡¡¡ABRIR PAGINA DE INICIAR SESION!!!!!!!!!! xdxdxd
-					header("Location:Inicio.html");
+					header("Location:iniciarSesion.html");
 				} else {
 					//echo "Error " . $sql . "<br>" . mysqli_error($conn);
 				}	

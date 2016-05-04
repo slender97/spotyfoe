@@ -1,5 +1,5 @@
 <?php
-include ("connection.php");
+include ("../connection.php");
 $codCancion = $_GET['codCanc'];
 $conn = connect("Musica");
 $queryUrl = "select calidadA from cancion where cod_cancion = ".$codCancion.";";

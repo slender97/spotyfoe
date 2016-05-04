@@ -6,46 +6,39 @@
 	</title>
 	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
 	<link rel = "stylesheet" href = "style/formato2.css">
-	<link rel="shortcut icon" href="images/icon.ico">
+	<!--<link rel="shortcut icon" href="images/icon.ico">-->
+	<link rel="shortcut icon" href="favicon.ico">
 </head>
 <body>
 <?php
 
-	$host = "localhost";
-	$dbname = "musica";
-	$username = "root";
-	$PASSWORD = "";
+	include ("connection.php");
+	$codCancion = $_GET['codCanc'];
+	$conn = connect("Musica");
 
-	$codCancion= $_GET['codCanc']; //codigo de la cancion buscada
-
-	$connection = mysqli_connect($host, $username, $PASSWORD, $dbname);
-	if (!$connection){
-		die("No se pudo conectar con el servidor de la BD.". mysqli_connect_error());
-	}
-	//echo "Conexion establecida a MySQL<br>";
 
 	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
-	$resulAlbum = mysqli_query($connection, $queryAlbum);
+	$resulAlbum = mysqli_query($conn, $queryAlbum);
 	$arrayAlbum = mysqli_fetch_array($resulAlbum);
 	$queryNombre = "SELECT nombre from cancion where Cod_cancion = ".$codCancion;
-	$resulNombre = mysqli_query($connection, $queryNombre);
+	$resulNombre = mysqli_query($conn, $queryNombre);
 	$arrayNombre = mysqli_fetch_array($resulNombre);
 
 	$queryFecha = "SELECT fecha_lan from cancion where Cod_cancion = ".$codCancion;
-	$resulFecha = mysqli_query($connection, $queryFecha);
+	$resulFecha = mysqli_query($conn, $queryFecha);
 	$arrayFecha = mysqli_fetch_array($resulFecha);
 
 	$queryDuacion = "SELECT duracion from cancion where Cod_cancion = ".$codCancion;
-	$resulDuracion = mysqli_query($connection, $queryDuacion);
+	$resulDuracion = mysqli_query($conn, $queryDuacion);
 	$arrayDuracion = mysqli_fetch_array($resulDuracion);
 	
-	mysqli_close($connection);	
+	///mysqli_close($conn);	
 		
 ?>
 
 <ul>
   <li><a class="active" href="#">PRINCIPAL</a></li>
-  <li><a href="Inicio.html">Inicio</a></li>
+  <li><a href="manejoUsuarios/iniciarSesion.html">Inicio</a></li>
   <li><a href="">Perfil</a></li>
   <li><a href="#">Play Lists</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>
@@ -65,7 +58,15 @@
 	<form action="opciones.php" name="form1">
 
 		<div align = "center"> <h1> <?php echo $songName = $arrayNombre["nombre"]?> </h1> 
-					   <h2>Artist name</h2> 
+					   <h2>
+					   <?php
+							$queryArtista = "SELECT artista.nombre FROM artista, artistacancion WHERE artista.Cod_artista = artistacancion.Cod_artista and artistacancion.Cod_cancion = ".$codCancion;
+							$resulArtista = mysqli_query($conn, $queryArtista);
+							while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
+								echo $arrayArtista["nombre"]." ";
+							}
+						?>
+						</h2> 
 					   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
 					   <h4><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
 					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3> 
@@ -82,7 +83,7 @@
   			</div>
 		</div>
 		<div class="imagenPlay">
-			<a href='interfaz_reproductor.php?codCanc= <?php echo $codCancion; ?> '>
+			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> '>
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>

@@ -1,10 +1,10 @@
 <?php
-function connect()
+function connect($db_name)
 {
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$db_name = "Musica";
+	//$db_name = "Musica";
 	$conn = mysqli_connect($servername, $username, $password);
 	if (!$conn)		
 	{

@@ -4,6 +4,7 @@
 	<title>
 		Motor de busqueda
 	</title>
+	<link rel="shortcut icon" href="../favicon.ico">
 	<link rel = "stylesheet" href = "formato.css">
 	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
 </head>
