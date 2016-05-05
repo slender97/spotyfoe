@@ -7,7 +7,7 @@
 </head>
 <body>
 	<?php
-	include("../connection.php");
+	include("../connection.php");	
 
 	
 	if(isset($_POST['Usuario']) && !empty($_POST['Usuario']) 
@@ -25,7 +25,8 @@
 		if(mysqli_num_rows($query) == 1)
 		{
 			//echo "Iniciaste Sesion";
-			header("Location:../buscador.php");
+			header("Location:../perfil/cachador.php?user='$usuario'");
+
 
 		}
 		else
