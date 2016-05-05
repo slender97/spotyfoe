@@ -7,6 +7,19 @@
 	<link rel="shortcut icon" href="../favicon.ico">
 	<link rel = "stylesheet" href = "formato.css">
 	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
+	<style type="text/css">
+		.botonImagen { 
+			background-image: url(images/lupa.png);
+			background-position:  0px 0px;
+			width: 30px;
+			height: 30px;
+			border: 0px;
+			position: absolute;
+		}
+		.botonImagen:hover{ 
+			background-image: url(images/lupa2.png);
+		}
+	</style>
 </head>
 <body 
 	class = "fondo";>
@@ -20,12 +33,9 @@
 		<img src = "images/lupa.jpg" id = "ima">
 	</div>
 	<div>
-		<form action = "buscador.php" method = "post" name = "form1" class = "center"> 
-			
-			<input type = "text" name = "buscador" placeholder = "Ingrese nombre de la cancion o album a buscar" style="width:284px;height:30px">
-			<br>
-			<br>
-			<input type = "submit" value = "Buscar" name = "buscar">
+		<form action = "buscador.php" method = "post" name = "form1" class = "center">
+			<input type = "search" name = "buscador" placeholder = "Ingrese nombre de la cancion o album a buscar" style="width:284px;height:30px">
+			<input type = "submit" value="" name = "buscar" class="botonImagen">
 		</form>
 	</div>
 	<div class = "resultados">
