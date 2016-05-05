@@ -5,7 +5,7 @@
 
 	$codCancion  = $_GET['codCanc'];
 
-	$conexion  = connect();
+	$conexion  = connect("Musica");
 
 	echo $codCancion."<br>";
 
@@ -15,7 +15,7 @@
 
 	echo $arrayNombre['Nombre'];
 
-	//header("Location:opciones.php?codCanc=$codCancion");
+	header("Location:opciones.php?codCanc=$codCancion");
 
 
 ?>
