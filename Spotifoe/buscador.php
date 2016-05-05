@@ -30,34 +30,16 @@
 	</div>
 	<div class = "resultados">
 	<?php
+		include ("consultasSQL.php");
 		if( isset($_POST['buscar']) )
 		{
-			$host = "localhost";
-			$dbname = "musica";
-			$username = "root";
-			$PASSWORD = "";
-
-
 			$Nombre = $_POST["buscador"];
 			$Album = $_POST["buscador"];
 
-
-			//Seleccionar el servidor:
-			$connection = mysqli_connect($host, $username, $PASSWORD, $dbname) or die ("No se pudo conectar con el servidor de la BD.");
-			//echo "Conexion establecida a MySQL<br />";
-
-			//Seleccionar la BD con la que vamos a trabajar:
-			//mysql_select_db($dbname, $connection) or die ("La BD no existe.");
+			$connection = connect ("Musica");
 			
-			//echo "BD selecconada: " . " " . $dbname. "<br />";
-
 			//para cancion
-			$consulta = "SELECT * FROM CANCION WHERE Nombre LIKE '%$Nombre%'";
-
-			//PARA EJECUTAR LA CONSULTA:
-			$ejecutar_consulta = mysqli_query($connection, $consulta) or die ("No se pudo ejecutar la consulta en la BD.");
-			//echo "Resultados De Busqueda: <br />";
-			//echo "    <br />";
+			$ejecutar_consulta = buscarPorCancion($Nombre);
 
 			//mostrar el resultado de la consulta, dentro de un ciclo y en una variable ingresamos la funcion mySQL fetch array (la ejecicion dela consulta la guarda en un arreglo)
 			?>
@@ -67,7 +49,12 @@
 			<?php
 			while ($registro = mysqli_fetch_array($ejecutar_consulta))
 			{
-				echo "<li><a href='opciones.php?codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]."</a></li>";
+				$nombresArtistas = "";
+				$resulArtista = getArtista($registro["Cod_cancion"]);
+				while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
+					$nombresArtistas = $nombresArtistas." ".$arrayArtista["nombre"];
+				}
+				echo "<li><a href='opciones.php?codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]." - ".$nombresArtistas."</a></li>";
 				//echo "Album: ". $registro["Cod_album"]. "   ". $registro["Fecha_lan"]. "<br />";
 			}
 			?>
@@ -76,8 +63,7 @@
 			
 			
 			//para album
-			//echo "<h4> BUSCANDO...</h4>";
-			$consulta = "SELECT * FROM ALBUM WHERE Nombre = '$Album'";
+			/*$consulta = "SELECT * FROM ALBUM WHERE Nombre = '$Album'";
 
 			//PARA EJECUTAR LA CONSULTA:
 			$ejecutar_consulta = mysqli_query($connection, $consulta) or die ("No se pudo ejecutar la consulta en la BD.");
@@ -97,6 +83,8 @@
 			}
 			?>
 			</ul>
+			*/
+			?>
 			<?php
 		}
 	?>
