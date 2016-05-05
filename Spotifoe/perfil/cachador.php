@@ -6,18 +6,25 @@
 	</title>
 </head>
 <body>
+<form>
+	<font>
+	<center>
+	<a href="modificarUsuario.php?user=$usuario">
+		<input type="button" value="Actualizar Datos">
+		</a>
+	</center>>
+	</font>
+</form>>
+	
 	<?php
 	include("../connection.php");
 
-
-
-	
 		$usuario = $_GET['user'];
 		//echo $_GET['user'];
 
 		$con = connect("usuarios");
 
-		$query = mysqli_query($con,"SELECT USERID, NOMBRE, USERNAME, EMAIL, FECHA, GENERO   FROM usuario WHERE USERNAME= $usuario");
+		$query = mysqli_query($con,"SELECT USERID, NOMBRE, USERNAME, PASSWORD, EMAIL, FECHA, GENERO   FROM usuario WHERE USERNAME= $usuario");
 		
 		while ($res = mysqli_fetch_assoc($query)) {
 			
@@ -32,14 +39,7 @@
 			else {
 				echo "Femenino";
 			}
-			
 		}
-
-		//ID, Nombre, Username, Email, Fecha Nac, Genero----Alterar Contraseña 
-
-		
-	
-	
 	?>
 </body>
 </html>

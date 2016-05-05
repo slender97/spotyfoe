@@ -1,7 +1,7 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
 <head>
-	<title>Registrarse</title>
+	<title>Actualizar Datos</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" href="../style/basic.css">
 	<link rel="shortcut icon" href="../favicon.ico">
@@ -16,7 +16,8 @@
 	}
 
 	$errNombre = $errUser = $errPass = $errPass2 = $errEmail = $errEmail2 = $errFecha = $errGenero = "";
-	$txtNombre = $txtUser = $txtPass = $txtEmail = $txtFecha = "";
+	$txtNombre = $txtPass = $txtEmail = $txtFecha = "";
+	$txtUser = "";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){
 		$valido = true;
@@ -69,6 +70,7 @@
 		if ($valido){
 			//REALIZAR LA CONEXION CON LA BASE DE DATOS
 			include("../connection.php");
+			 	
 			$conn = connect("usuarios");
 			//echo "Connected successfully <br>";
 			$txtNombre = mysqli_real_escape_string($conn, $txtNombre);
@@ -77,16 +79,14 @@
 			$txtEmail = mysqli_real_escape_string($conn, $txtEmail);
 			$txtFecha = mysqli_real_escape_string($conn, $txtFecha);
 			$txtGenero = mysqli_real_escape_string($conn, $txtGenero);
-			$test = "SELECT userid FROM USUARIO where username = '$txtUser'";
-			$testr = mysqli_query($conn, $test);
-			if (mysqli_num_rows($testr) == 0){
-				$sql = "INSERT INTO USUARIO VALUES('',
-				'$txtNombre', 
-				'$txtUser', 
-				'$txtPass', 
-				'$txtEmail', 
-				'$txtFecha',
-				$txtGenero);";
+			$test = mysqli_query($conn,"SELECT NOMBRE, EMAIL FROM USUARIO where username = '$txtUser'");
+			$testr = mysqli_fetch_assoc($test);
+				$sql = "UPDATE USUARIO SET 
+				NOMBRE='$txtNombre', 
+				password='txtPass', 
+				EMAIL='$txtEmail', 
+				GENERO=$txtGenero;
+				WHERE username = '$txtUser'";
 				if (mysqli_query($conn, $sql)){
 					//AGREGADO CORRECTAMENTE
 					//¡¡¡¡¡¡¡¡¡¡ABRIR PAGINA DE INICIAR SESION!!!!!!!!!! xdxdxd
@@ -94,10 +94,7 @@
 				} else {
 					//echo "Error " . $sql . "<br>" . mysqli_error($conn);
 				}	
-			} else {
-				$errUser = "El nombre de usuario ya existe";
-			}
-			
+			$res = $testr['Nombre'];			
 			mysqli_close($conn);	
 		}
 		
@@ -105,46 +102,25 @@
 	}
 ?>
 <div id="header">
-	<p id="titulo">Disfruta de una biblioteca de música por Internet</p><br>
+	<p id="titulo">Actualizar Datos</p><br>
 </div>
 <div id="contenido">
 <div id="imagen">
 	<img src="../images/imagen.png" width="200px" height="200px">
 </div>
+<h1> prueba: <?php $res; ?></h1>
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 	<div id="inputs">
-	<input type="text" class="texto" name="txNombre" placeholder="Nombre" value="<?php echo $txtNombre; ?>"><br>
+	<input type="text" class="texto" name="txNombre" value=$testr['Nombre'] value="<?php echo $txtNombre; ?>"><br>
 	<span class="error"><?php echo $errNombre; ?></span><br>
-	<input type="text" class="texto" name="txUser" placeholder="Usuario" value="<?php echo $txtUser; ?>"><br>
-	<span class="error"><?php echo $errUser; ?></span><br>
 	<input type="password" class="texto" name="txPass" placeholder="Contraseña"><br>
 	<span class="error"><?php echo $errPass; ?></span><br>
 	<input type="password" class="texto" name="txPass2" placeholder="Confirmar contraseña"><br>
 	<span class="error"><?php echo $errPass2; ?></span><br>
-	<input type="text" class="texto" name="txEmail" placeholder="Email" value="<?php echo $txtEmail; ?>"><br>
+	<input type="text" class="texto" name="txEmail" value=$testr['EMAIL'] value="<?php echo $txtEmail; ?>"><br>
 	<span class="error"><?php echo $errEmail; ?></span><br>
 	<input type="text" class="texto" name="txEmail2" placeholder="Confirmarprueba email"><br>
 	<span class="error"><?php echo $errEmail2; ?></span><br>
-	Fecha de Nacimiento:<br> 
-	<input type="number" id="numeroDia" name="txDia" placeholder="Día" min="1" max="31" value="<?php echo substr($txtFecha, 8, 2);?>">
-	<select name="txMes" class="numero">
-		<option value selected disabled>Mes</option>
-		<option value=01 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 01) echo "selected"; ?>>Enero</option>
-		<option value=02 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 02) echo "selected"; ?>>Febrero</option>
-		<option value=03 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 03) echo "selected"; ?>>Marzo</option>
-		<option value=04 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 04) echo "selected"; ?>>Abril</option>
-		<option value=05 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 05) echo "selected"; ?>>Mayo</option>
-		<option value=06 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 06) echo "selected"; ?>>Junio</option>
-		<option value=07 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 07) echo "selected"; ?>>Julio</option>
-		<option value=08 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 08) echo "selected"; ?>>Agosto</option>
-		<option value=09 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 09) echo "selected"; ?>>Septiembre</option>
-		<option value=10 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 10) echo "selected"; ?>>Octubre</option>
-		<option value=11 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 11) echo "selected"; ?>>Noviembre</option>
-		<option value=12 <?php if (!empty($txtFecha) and substr($txtFecha, 5, 2) == 12) echo "selected"; ?>>Diciembre</option>
-	</select>
-	<input type="number" class="numero" name="txYear" placeholder="Año" min="1900" max="2003" value="<?php echo substr($txtFecha, 0, 4);?>"><br>
-	<span class="error"><?php echo $errFecha; ?></span>
-	<br>
 	Masculino <input type="radio" name="txGenero" <?php if (isset($txtGenero) and $txtGenero) echo "checked"; ?> value=true>
 	Femenino <input type="radio" name="txGenero" <?php if (isset($txtGenero) and !$txtGenero) echo "checked"; ?> value=false><br>
 	<span class="error"><?php echo $errGenero; ?></span><br><br>
