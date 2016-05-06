@@ -1,9 +1,8 @@
 <?php
-include ("../connection.php");
+include ("../consultasSQL.php");
 $codCancion = $_GET['codCanc'];
-$conn = connect("Musica");
-$queryUrl = "select calidadA from cancion where cod_cancion = ".$codCancion.";";
-$resulUrl = mysqli_query($conn, $queryUrl);
+$resulUrl = getUrl($codCancion);
+
 $arrayUrl = mysqli_fetch_array($resulUrl);
 
 $filename = "Pista 1";
