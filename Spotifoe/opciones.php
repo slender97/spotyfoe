@@ -44,6 +44,50 @@
 		
 ?>
 
+<script type="text/javascript">
+
+	var agregado = false;
+	<?php
+			$conexion  = connect("Musica");
+			$queryAgregado = "SELECT Cod_cancion FROM listarep WHERE Cod_cancion = '$codCancion';";
+			$executequery = mysqli_query($conexion,$queryAgregado);
+			$agregado = "no";
+	?>
+	
+	function agregarQuitarCancion() {
+
+		
+		var etiqueta = document.getElementById('Lista');
+		var agregadoEnBD = "<?php echo $agregado; ?>";
+
+		<?php
+			if (mysqli_num_rows($executequery) == 1) {
+				//ya se agrego la cancion;
+				$agregado = "si";
+			}
+			else {
+				$agregado = "no";
+			}
+		?>
+
+		alert(agregadoEnBD);
+
+		if (agregado == false && agregadoEnBD == false) {
+			alert("Cancion Agregada!");
+			etiqueta.innerHTML = "Eliminar de la lista de Reproduccion";
+			agregado = true;
+			agregadoEnBD = "si";
+		}
+		else {
+			alert("Cancion Eliminada");
+			etiqueta.innerHTML = "Agregar a lista de reproduccion";
+			agregado = false;
+			agregadoEnBD = "no";
+		}
+	}
+
+</script>
+
 <ul>
   <li><a class="active" href="#">PRINCIPAL</a></li>
   <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
@@ -88,7 +132,7 @@
 				<a href="https://www.google.com.bo">Formato WAV</a>
     			<a href="#">Formato MP3</a>
     			<a href="#">Ver Letra</a>
-    			<a href="#">Agregar a lista de reproduccion</a>
+    			<a id= "Lista" href='ProcesoLista.php?codCanc= <?php echo $codCancion; ?> ' onClick="agregarQuitarCancion()">Agregar a lista de reproduccion</a>
     			<a href="#">Agregar a favoritos</a>
   			</div>
 		</div>
