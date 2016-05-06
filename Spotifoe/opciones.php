@@ -31,6 +31,14 @@
 	$queryDuacion = "SELECT duracion from cancion where Cod_cancion = ".$codCancion;
 	$resulDuracion = mysqli_query($conn, $queryDuacion);
 	$arrayDuracion = mysqli_fetch_array($resulDuracion);
+
+	$queryCalificacion = "SELECT ROUND(AVG(Calificacion),2) as Promedio FROM calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
+	$resulCalificacion = mysqli_query($conn, $queryCalificacion);
+	$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
+
+	$queryContar = "SELECT COUNT(Calificacion) as Cantidad from calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
+	$resulContar = mysqli_query($conn, $queryContar);
+	$arrayContar = mysqli_fetch_array($resulContar);
 	
 	///mysqli_close($conn);	
 		
@@ -38,7 +46,7 @@
 
 <ul>
   <li><a class="active" href="#">PRINCIPAL</a></li>
-  <li><a href="manejoUsuarios/iniciarSesion.html">Inicio</a></li>
+  <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
   <li><a href="">Perfil</a></li>
   <li><a href="#">Play Lists</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>
@@ -69,7 +77,9 @@
 						</h2> 
 					   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
 					   <h4><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
-					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3> 
+					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
+					   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"] ?>/10</h3>
+					   <h3>NUMERO DE CALIFICACIONES: <?php echo $contar = $arrayContar["Cantidad"]?></h3> 
 		</div>
 	
 		<div class="dropdown">
