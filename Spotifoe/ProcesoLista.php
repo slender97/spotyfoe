@@ -15,7 +15,9 @@
 
 	echo $arrayNombre['Nombre'];
 
-	header("Location:opciones.php?codCanc=$codCancion");
+	$queryInsertar = "INSERT INTO listarep VALUES('$codCancion','1');";
+	mysqli_query($conexion,$queryInsertar);
 
+	header("Location:opciones.php?codCanc=$codCancion");
 
 ?>
