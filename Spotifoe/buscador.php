@@ -23,6 +23,9 @@
 </head>
 <body 
 	class = "fondo";>
+	<?php
+		$codUsuario = $_GET['userID'];		
+	?>
 
 	<h2
 		class = "centerTitulos">
@@ -33,7 +36,7 @@
 		<img src = "images/lupa.jpg" id = "ima">
 	</div>
 	<div>
-		<form action = "buscador.php" method = "post" name = "form1" class = "center">
+		<form action = "buscador.php?userID=<?php echo $codUsuario;?>" method = "post" name = "form1" class = "center">
 			<input type = "search" name = "buscador" placeholder = "Ingrese nombre de la cancion o album a buscar" style="width:284px;height:30px">
 			<input type = "submit" value="" name = "buscar" class="botonImagen">
 		</form>
@@ -41,8 +44,13 @@
 	<div class = "resultados">
 	<?php
 		include ("consultasSQL.php");
+
+
+		$codUsuario = $_GET['userID'];
+
 		if( isset($_POST['buscar']) )
 		{
+			
 			$Nombre = $_POST["buscador"];
 			$Album = $_POST["buscador"];
 
@@ -64,7 +72,7 @@
 				while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
 					$nombresArtistas = $nombresArtistas." ".$arrayArtista["nombre"];
 				}
-				echo "<li><a href='opciones.php?codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]." - ".$nombresArtistas."</a></li>";
+				echo "<li><a href='opciones.php?codUser=$codUsuario & codCanc=".$registro["Cod_cancion"]."'>".$registro["Nombre"]." - ".$nombresArtistas."</a></li>";
 				//echo "Album: ". $registro["Cod_album"]. "   ". $registro["Fecha_lan"]. "<br />";
 			}
 			?>

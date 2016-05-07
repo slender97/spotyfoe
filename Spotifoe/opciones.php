@@ -14,7 +14,10 @@
 
 	include ("connection.php");
 	$codCancion = $_GET['codCanc'];
+	$codUsuario = $_GET['codUser'];
 	$conn = connect("Musica");
+
+	echo $codUsuario;
 
 
 	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
