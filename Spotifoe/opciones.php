@@ -12,12 +12,19 @@
 <body>
 <?php
 
+
 	include ("connection.php");
+
+	if (empty($_GET['userID'])) {
+		header("Location:manejoUsuarios/iniciarSesion.php");
+	}
+
 	$codCancion = $_GET['codCanc'];
-	$codUsuario = $_GET['codUser'];
+	$codUsuario = $_GET['userID'];
 	$conn = connect("Musica");
 
 	echo $codUsuario;
+	echo $codCancion;
 
 
 	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
@@ -49,42 +56,42 @@
 
 <script type="text/javascript">
 
-	var agregado = false;
 	<?php
 			$conexion  = connect("Musica");
-			$queryAgregado = "SELECT Cod_cancion FROM listarep WHERE Cod_cancion = '$codCancion';";
+			$queryAgregado = "SELECT Cod_cancion FROM listarep WHERE Cod_cancion = '$codCancion' AND Usuario = '$codUsuario';";
 			$executequery = mysqli_query($conexion,$queryAgregado);
-			$agregado = "no";
+			$agregado = "";
+			$tituloOpcion = ""
 	?>
 	
 	function agregarQuitarCancion() {
 
-		
+
 		var etiqueta = document.getElementById('Lista');
-		var agregadoEnBD = "<?php echo $agregado; ?>";
 
 		<?php
 			if (mysqli_num_rows($executequery) == 1) {
 				//ya se agrego la cancion;
 				$agregado = "si";
+				$tituloOpcion = "Eliminar de la lista de reproduccion";
 			}
 			else {
 				$agregado = "no";
+				$tituloOpcion = "Agregar a lista de reproduccion";
 			}
 		?>
 
-		alert(agregadoEnBD);
+		var agregadoEnBD = "<?php echo $agregado; ?>";
+		var tituloEnJs = "<?php echo $tituloOpcion; ?>"
 
-		if (agregado == false && agregadoEnBD == false) {
+		if  (agregadoEnBD == "no") {
 			alert("Cancion Agregada!");
-			etiqueta.innerHTML = "Eliminar de la lista de Reproduccion";
-			agregado = true;
+			etiqueta.innerHTML = tituloEnJs ;
 			agregadoEnBD = "si";
 		}
-		else {
+		else if (agregadoEnBD == "si") {
 			alert("Cancion Eliminada");
-			etiqueta.innerHTML = "Agregar a lista de reproduccion";
-			agregado = false;
+			etiqueta.innerHTML = tituloEnJs;
 			agregadoEnBD = "no";
 		}
 	}
@@ -135,12 +142,12 @@
 				<a href="https://www.google.com.bo">Formato WAV</a>
     			<a href="#">Formato MP3</a>
     			<a href="#">Ver Letra</a>
-    			<a id= "Lista" href='ProcesoLista.php?codCanc= <?php echo $codCancion; ?> ' onClick="agregarQuitarCancion()">Agregar a lista de reproduccion</a>
+    			<a id= "Lista" href='ProcesoLista.php?userID= <?php echo $codUsuario?> &codCanc=<?php echo $codCancion?> &varAgregado=<?php echo $agregado?>'  onClick="agregarQuitarCancion()"><?php echo $tituloOpcion; ?></a>
     			<a href="#">Agregar a favoritos</a>
   			</div>
 		</div>
 		<div class="imagenPlay">
-			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> '>
+			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario?>'>
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>
