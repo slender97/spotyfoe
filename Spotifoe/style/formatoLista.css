@@ -1,0 +1,38 @@
+.fondo{
+	background-color:black;
+}
+
+.centerTitulos{
+	text-align: center;
+	color: white;
+	font-family: verdana;
+	font-size: 25pt;
+	padding: 35px 45px 35px 170px;
+}
+
+.listas{
+	color: white;
+	margin-top: 90px;
+	margin-left: 500px;
+	margin-right: 400px;
+	padding: 25px 45px 35px 140px;
+	font-size: 14pt;
+}
+
+.LiItem{
+	
+	padding: 8px 8px 18px 16px;
+}
+
+.LiItemA{
+	display: block;
+	color: white;
+	padding: 8px 8px 8px 4px;
+	text-decoration: none;
+}
+
+
+li a:hover {
+	background-color: #555;
+	color: #33aabb;
+}

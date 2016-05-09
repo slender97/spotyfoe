@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+}
+
+.Izq {
+	list-style-type: none;
+   	margin-top: 0px;
+	margin-left: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #c6c6c6;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+/*DISENO DE LOS ELEMENTOS QUE CONTIENEN EL LINK DE ENLACE*/
+.Left {
+	display: block;
+	color: #000;
+	padding: 8px 0 8px 16px;
+	text-decoration: none;
+}
+
+/*PALABRA FIJA (QUE NO REDIRECCIONA) QUE ESTA EN LA PARTE SUPERIOR DE LA BARRA DE NAVEGACION*/
+.Left.active {
+	background-color: #30acc1;
+	color: white;
+}
+
+/*CAMBIO DE COLOR DE LOS LINKS AL POSICIONAR EL CURSOR*/
+.Left:hover:not(.active) {
+	background-color: #555;
+	color: white;
+}
+
+
+
+
+.center{
+	
+	padding: 0;
+	margin: 0 auto;
+	margin-left: 6%;
+	margin-top: 10px;
+}
+
+
+
+.botonImagen { 
+	background-image: url(images/lupa.png);
+	background-position:  0px 0px;
+	width: 30px;
+	height: 30px;
+	border: 0px;
+	position: absolute;
+}
+.botonImagen:hover{ 
+	background-image: url(images/lupa2.png);
+}

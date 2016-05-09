@@ -12,9 +12,19 @@
 <body>
 <?php
 
+
 	include ("connection.php");
+
+	if (empty($_GET['userID'])) {
+		header("Location:manejoUsuarios/iniciarSesion.php");
+	}
+
 	$codCancion = $_GET['codCanc'];
+	$codUsuario = $_GET['userID'];
 	$conn = connect("Musica");
+
+	//echo $codUsuario;
+	//echo $codCancion;
 
 
 	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
@@ -31,22 +41,76 @@
 	$queryDuacion = "SELECT duracion from cancion where Cod_cancion = ".$codCancion;
 	$resulDuracion = mysqli_query($conn, $queryDuacion);
 	$arrayDuracion = mysqli_fetch_array($resulDuracion);
+
+	$queryCalificacion = "SELECT ROUND(AVG(Calificacion),2) as Promedio FROM calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
+	$resulCalificacion = mysqli_query($conn, $queryCalificacion);
+	$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
+
+	$queryContar = "SELECT COUNT(Calificacion) as Cantidad from calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
+	$resulContar = mysqli_query($conn, $queryContar);
+	$arrayContar = mysqli_fetch_array($resulContar);
 	
-	///mysqli_close($conn);	
+	//mysqli_close($conn);	
 		
 ?>
 
+<script type="text/javascript">
+
+	<?php
+			$conexion  = connect("Musica");
+			$queryAgregado = "SELECT Cod_cancion FROM listarep WHERE Cod_cancion = '$codCancion' AND Usuario = '$codUsuario';";
+			$executequery = mysqli_query($conexion,$queryAgregado);
+			$agregado = "";
+			$tituloOpcion = ""
+	?>
+	
+	function agregarQuitarCancion() {
+
+
+		var etiqueta = document.getElementById('Lista');
+
+		<?php
+			if (mysqli_num_rows($executequery) == 1) {
+				//ya se agrego la cancion;
+				$agregado = "si";
+				$tituloOpcion = "Eliminar de la lista de reproduccion";
+			}
+			else {
+				$agregado = "no";
+				$tituloOpcion = "Agregar a lista de reproduccion";
+			}
+		?>
+
+		var agregadoEnBD = "<?php echo $agregado; ?>";
+		var tituloEnJs = "<?php echo $tituloOpcion; ?>"
+
+		if  (agregadoEnBD == "no") {
+			alert("Cancion Agregada!");
+			etiqueta.innerHTML = tituloEnJs ;
+			agregadoEnBD = "si";
+		}
+		else if (agregadoEnBD == "si") {
+			alert("Cancion Eliminada");
+			etiqueta.innerHTML = tituloEnJs;
+			agregadoEnBD = "no";
+		}
+	}
+	<?php
+		mysqli_close($conexion);
+	?>
+
+</script>
+
 <ul>
   <li><a class="active" href="#">PRINCIPAL</a></li>
-  <li><a href="manejoUsuarios/iniciarSesion.html">Inicio</a></li>
+  <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
   <li><a href="">Perfil</a></li>
   <li><a href="#">Play Lists</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>
   <li><a href="#">Géneros</a></li>
 </ul>
 
-<div style="margin-left:16%;padding:1px 16px;height:1000px; background-color:black">
-  
+<div style="margin-left:18%;padding:1px 16px;height:800px; background-color:black">
     <div id="header">
 		<p id="titulo">Escucha La Cancion Perfecta</p>
 		<br>
@@ -65,11 +129,14 @@
 							while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
 								echo $arrayArtista["nombre"]." ";
 							}
+							mysqli_close($conn);
 						?>
 						</h2> 
 					   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
 					   <h4><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
-					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3> 
+					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
+					   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"] ?>/10</h3>
+					   <h3>NUMERO DE CALIFICACIONES: <?php echo $contar = $arrayContar["Cantidad"]?></h3> 
 		</div>
 	
 		<div class="dropdown">
@@ -78,17 +145,29 @@
 				<a href="https://www.google.com.bo">Formato WAV</a>
     			<a href="#">Formato MP3</a>
     			<a href="#">Ver Letra</a>
-    			<a href="#">Agregar a lista de reproduccion</a>
+    			<a id= "Lista" href='ProcesoLista.php?userID= <?php echo $codUsuario?> &codCanc=<?php echo $codCancion?> &varAgregado=<?php echo $agregado?>'  onClick="agregarQuitarCancion()"><?php echo $tituloOpcion; ?></a>
     			<a href="#">Agregar a favoritos</a>
   			</div>
 		</div>
 		<div class="imagenPlay">
-			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> '>
+			<a href='opciones.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario;?> &pres=1'>
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>
 	</form>
-	</div>
+</div>
+
+<?php
+	if (!empty($_GET['pres'])) {
+		?>
+		<div style="margin-left:18%;margin-top:800px;">
+		<?php
+			include("reproductorMusica/interfazReproductor.php");
+		?>
+		</div>
+		<?php
+	}
+?>
 
 </body>
 </html>
