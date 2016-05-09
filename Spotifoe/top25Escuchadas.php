@@ -5,7 +5,7 @@
 <body class = "fondo">
 
 <div>
-	<?php include("menuIzquierda.html"); ?>
+	<?php include("menuIzquierda.php"); ?>
 </div>
 
 <div>
