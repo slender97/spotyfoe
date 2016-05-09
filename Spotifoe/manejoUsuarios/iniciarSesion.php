@@ -26,7 +26,7 @@
       	.textField {
         	font-family: 'Inconsolata', serif;
         	height: 30px;
-        	width: 350px;
+        	width: 90%;
         	font-size: 15px;
       	}
       	#content {
@@ -107,9 +107,9 @@
 			{
 				//echo "Iniciaste Sesion";
 
-				header("Location:../buscador.php?userID=$codigoUsuario");
+				//header("Location:../buscador.php?userID=$codigoUsuario");
 
-				//header("Location:../mostrarLista.php?userID=$codigoUsuario");
+				header("Location:../mostrarLista.php?userID=$codigoUsuario");
 
 			}
 			else
@@ -131,7 +131,7 @@
 	}
 	?>
 	<div id="content">
-	<div id="header"><img src="../images/logoW.png" width="350px" height="100px" align="middle"> </div>
+	<div id="header"><img src="../images/logoW.png" width="90%" height="30%" align="middle"> </div>
 	<div><p class="title">INICIAR SESION</p></div>
 	<div>
 	<div id="errorDiv"><span class="error"><?php echo $errorInicio; ?></span><br></div>
