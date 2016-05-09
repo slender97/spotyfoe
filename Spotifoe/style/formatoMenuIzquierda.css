@@ -3,6 +3,7 @@ body {
 }
 
 .Izq {
+	font-family: 'Montserrat', serif;
 	list-style-type: none;
    	margin-top: 0px;
 	margin-left: 0;
@@ -56,4 +57,8 @@ body {
 }
 .botonImagen:hover{ 
 	background-image: url(../images/lupa2.png);
+}
+
+#txtBuscar {
+	font-family: 'Inconsolata', serif;
 }

@@ -5,8 +5,7 @@
 		Iniciar Sesion
 
 	</title>
-	<link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Montserrat|Inconsolata">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Inconsolata">
     <style>
     	body {
     		background-color: #000000
