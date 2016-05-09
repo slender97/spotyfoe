@@ -2,19 +2,6 @@
 <head>
 <link rel = "stylesheet" href = "style/formatoMenuIzquierda.css">
 </head>
-<style type="text/css">
-		.botonImagen { 
-			background-image: url(images/lupa.png);
-			background-position:  0px 0px;
-			width: 30px;
-			height: 30px;
-			border: 0px;
-			position: absolute;
-		}
-		.botonImagen:hover{ 
-			background-image: url(images/lupa2.png);
-		}
-	</style>
 <body>
 <div>
 	<ul class = "Izq">
