@@ -95,12 +95,9 @@
 			agregadoEnBD = "no";
 		}
 	}
-<<<<<<< HEAD
 	<?php
 		mysqli_close($conexion);
 	?>
-=======
->>>>>>> cf95646e2db4082569f190b9a883945cd6969d18
 
 </script>
 
@@ -153,11 +150,7 @@
   			</div>
 		</div>
 		<div class="imagenPlay">
-<<<<<<< HEAD
 			<a href='opciones.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario;?> &pres=1'>
-=======
-			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario?>'>
->>>>>>> cf95646e2db4082569f190b9a883945cd6969d18
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>
