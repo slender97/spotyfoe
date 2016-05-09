@@ -3,14 +3,17 @@ div#container {
 	height: 100%;
 	position: fixed; 
 	overflow: hidden;
-	background-color: black;
+	background-color: #1F1F1F;
 }
 
 div#content {
-	font-family: 'Montserrat', serif;
 	margin-left: 300px;
     height: 100%;
 	color: white;
+}
+
+div#datos {
+	font-family: 'Montserrat', serif;
 }
 
 .button {
