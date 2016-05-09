@@ -44,11 +44,11 @@
 
 	$queryCalificacion = "SELECT ROUND(AVG(Calificacion),2) as Promedio FROM calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
 	$resulCalificacion = mysqli_query($conn, $queryCalificacion);
-	/*$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
+	$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
 
 	$queryContar = "SELECT COUNT(Calificacion) as Cantidad from calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
 	$resulContar = mysqli_query($conn, $queryContar);
-	$arrayContar = mysqli_fetch_array($resulContar);*/
+	$arrayContar = mysqli_fetch_array($resulContar);
 	
 	//mysqli_close($conn);	
 		
@@ -135,8 +135,8 @@
 					   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
 					   <h4><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
 					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
-					   <h3>CALIFICACION: <?php //echo $calificacion = $arrayCalificacion["Promedio"] ?>/10</h3>
-					   <h3>NUMERO DE CALIFICACIONES: <?php //echo $contar = $arrayContar["Cantidad"]?></h3> 
+					   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"] ?>/10</h3>
+					   <h3>NUMERO DE CALIFICACIONES: <?php echo $contar = $arrayContar["Cantidad"]?></h3> 
 		</div>
 	
 		<div class="dropdown">
