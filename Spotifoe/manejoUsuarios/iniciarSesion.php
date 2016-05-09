@@ -97,13 +97,19 @@
 			$contrasenia = mysqli_real_escape_string($con,test_input($_POST['Password']));
 
 			$query = mysqli_query($con,"SELECT USERNAME,PASSWORD FROM usuario WHERE USERNAME='$usuario' AND PASSWORD='$contrasenia'");
+			$queryCodigo = mysqli_query($con,"SELECT userid FROM usuario WHERE username = '$usuario';");
+			$almacenarCodigo = mysqli_fetch_assoc($queryCodigo);
+			$codigoUsuario = $almacenarCodigo['userid'];
 
 			
 
 			if(mysqli_num_rows($query) == 1)
 			{
 				//echo "Iniciaste Sesion";
-				header("Location:../buscador.php");
+
+				header("Location:../buscador.php?userID=$codigoUsuario");
+
+				//header("Location:../mostrarLista.php?userID=$codigoUsuario");
 
 			}
 			else
