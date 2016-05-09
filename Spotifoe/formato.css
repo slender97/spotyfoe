@@ -1,3 +1,10 @@
+/*body{
+    margin: 0;
+    background-image: url("images/fondo4.jpg");
+    background-repeat: repeat-x;
+    background-color: inherit;
+}*/
+
 .centerTitulos{
 	text-align: center;
 	color: white;
@@ -13,29 +20,47 @@
 	margin-top: -500px;
 }
 
-.fondo{
-	background-color:black;
-}
-
-.resultados{
-	color: white;
-	margin-left: 600px;
-	margin-top: 10px;
-	padding: 10px;
-	font-size: 14pt;
-}
-
-.listas{
-	color: white;
-	margin-top: 90px;
-	margin-left: 600px;
-	padding: 10px;
-	font-size: 14pt;
-}
-
 #ima{
 	height: 354px;
 	width: 354px;
 	padding: 70px;
 	margin-top: 0px;
+}
+
+.botonImagen { 
+			background-image: url(images/lupa.png);
+			background-position:  0px 0px;
+			width: 30px;
+			height: 30px;
+			border: 0px;
+			position: absolute;
+}
+.botonImagen:hover{
+	background-image: url(images/lupa2.png);
+}
+
+ul {
+	list-style-type: none;
+	margin-left: 600px;
+	margin-top: 10px;
+	padding: 10px;
+    width: 18%;
+    background-color: black;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+
+}
+
+li a {
+	display: block;
+	color: #55ccee;
+	padding: 8px 0 8px 16px;
+	text-decoration: none;
+	font-size: 16pt;
+}
+
+li a:hover:not(.active) {
+	background-color: #555;
+	color: #55ccee;
 }
