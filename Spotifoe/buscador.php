@@ -25,6 +25,9 @@
 <body class = "fondo";>
 
 <?php
+if (empty($_GET['userID'])) {
+	header("Location:manejoUsuarios/iniciarSesion.php");
+}
 $codUsuario = $_GET['userID'];		
 ?>
 
