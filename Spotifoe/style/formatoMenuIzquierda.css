@@ -44,3 +44,15 @@ body {
 	margin-left: 6%;
 	margin-top: 10px;
 }
+
+.botonImagen { 
+	background-image: url(../images/lupa.png);
+	background-position:  0px 0px;
+	width: 30px;
+	height: 30px;
+	border: 0px;
+	position: absolute;
+}
+.botonImagen:hover{ 
+	background-image: url(../images/lupa2.png);
+}
