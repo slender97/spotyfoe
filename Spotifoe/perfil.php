@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	include("connection.php");
 	$id = $_GET['userID'];
 	$nombre = $username = $email = $fecha = $genero = "";
@@ -37,7 +37,7 @@
 			<span><b>Email: </b><?php echo $email;?></span><br>
 			<span><b>Fecha: </b><?php echo $fecha;?></span><br>
 			<span><b>Género: </b><?php echo $genero;?></span><br>
-			<a href="modificarUsuario.php?userID="<?php echo $id;?>>
+			<a href="modificarUsuario.php?userID=<?php echo $id;?>">
 				<input type="button" class="button" value="ACTUALIZAR DATOS">
 			</a>
 		</div>
