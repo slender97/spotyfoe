@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	include("connection.php");
 	$id = $_GET['userID'];
 	$nombre = $username = $email = $fecha = $genero = "";

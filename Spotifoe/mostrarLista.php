@@ -43,7 +43,7 @@
 </div>
 </head>
 <body style = "background-color:#000000 " >
-	<div style="margin-left:0px;margin-top:0px;">
+<div style="margin-left:0px;margin-top:0px;">
 	<?php include("menuIzquierda.php"); ?>
 </div>
 	<div style="position: relative; margin-left:650px; margin-top:50px;">
