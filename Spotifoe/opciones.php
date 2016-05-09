@@ -102,7 +102,7 @@
   <li><a class="active" href="#">PRINCIPAL</a></li>
   <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
   <li><a href="">Perfil</a></li>
-  <li><a href="#">Play Lists</a></li>
+  <li><a href="mostrarLista.php?userID= <?php echo $codUsuario?>">Mi Play List</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>
   <li><a href="#">Géneros</a></li>
 </ul>
