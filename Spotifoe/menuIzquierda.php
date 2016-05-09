@@ -11,11 +11,10 @@
 	  </form>
 	  <br>
 	  <li><a class="Left active" href="#">PRINCIPAL</a></li>
-	  <li><a class="Left" href="Inicio.html">Inicio</a></li>
+	  <li><a class="Left" href="inicio.php">Inicio</a></li>
 	  <li><a class="Left" href="">Perfil</a></li>
-	  <li><a class="Left" href="#">Play Lists</a></li>
+	  <li><a class="Left" href="mostrarLista.php">Play Lists</a></li>
 	  <li><a class="Left" href="top25escuchadas.php">TOP 25 Canciones</a></li>
-	  <li><a class="Left" href="#">Géneros</a></li>
 	</ul>
 
 		
