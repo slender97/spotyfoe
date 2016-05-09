@@ -7,11 +7,12 @@ body {
    	margin-top: 0px;
 	margin-left: 0;
     padding: 0;
-    width: 20%;
+    width: 300px;
     background-color: #c6c6c6;
     position: fixed;
     height: 100%;
     overflow: auto;
+    float: left;
 }
 
 /*DISENO DE LOS ELEMENTOS QUE CONTIENEN EL LINK DE ENLACE*/
