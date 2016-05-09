@@ -101,14 +101,9 @@
 
 </script>
 
-<ul>
-  <li><a class="active" href="#">PRINCIPAL</a></li>
-  <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
-  <li><a href="">Perfil</a></li>
-  <li><a href="mostrarLista.php?userID= <?php echo $codUsuario?>">Mi Play List</a></li>
-  <li><a href="#">TOP 10 Canciones</a></li>
-  <li><a href="#">Géneros</a></li>
-</ul>
+<div style="margin-left:0px;margin-top:0px;">
+	<?php include("menuIzquierda.php"); ?>
+</div>
 
 <div style="margin-left:18%;padding:1px 16px;height:800px; background-color:black">
     <div id="header">
