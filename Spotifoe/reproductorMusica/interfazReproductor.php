@@ -10,7 +10,9 @@
     }
   </style>
 </head>
+
 <body bgcolor = "green">
+
 <?php
   if (empty($_GET['userID'])) {
     header("Location:../manejoUsuarios/iniciarSesion.php");

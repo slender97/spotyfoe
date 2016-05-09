@@ -106,7 +106,10 @@
 			if(mysqli_num_rows($query) == 1)
 			{
 				//echo "Iniciaste Sesion";
+
 				header("Location:../buscador.php?userID=$codigoUsuario");
+
+				//header("Location:../mostrarLista.php?userID=$codigoUsuario");
 
 			}
 			else

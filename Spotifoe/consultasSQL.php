@@ -25,6 +25,7 @@ function getArtista($codCancion)
 	$conn = connect("Musica");
 	$queryArtista = "SELECT artista.nombre FROM artista, artistacancion WHERE artista.Cod_artista = artistacancion.Cod_artista and artistacancion.Cod_cancion = ".$codCancion;
 	$resulArtista = mysqli_query($conn, $queryArtista);
+
 	mysqli_close($conn);
 	return $resulArtista;
 }
@@ -51,8 +52,8 @@ function buscarPorCancion($Nombre)
 	$connection = connect("Musica");
 	$consulta = "SELECT * FROM CANCION WHERE Nombre LIKE '%$Nombre%'";
 	$ejecutar_consulta = mysqli_query($connection, $consulta) or die ("No se pudo ejecutar la consulta en la BD.");
-	return $ejecutar_consulta;
 	mysqli_close($conn);
+	return $ejecutar_consulta;
 }
 
 function top25Escuchadas()

@@ -95,9 +95,12 @@
 			agregadoEnBD = "no";
 		}
 	}
+<<<<<<< HEAD
 	<?php
 		mysqli_close($conexion);
 	?>
+=======
+>>>>>>> cf95646e2db4082569f190b9a883945cd6969d18
 
 </script>
 
@@ -105,7 +108,7 @@
   <li><a class="active" href="#">PRINCIPAL</a></li>
   <li><a href="manejoUsuarios/iniciarSesion.php">Inicio</a></li>
   <li><a href="">Perfil</a></li>
-  <li><a href="#">Play Lists</a></li>
+  <li><a href="mostrarLista.php?userID= <?php echo $codUsuario?>">Mi Play List</a></li>
   <li><a href="#">TOP 10 Canciones</a></li>
   <li><a href="#">Géneros</a></li>
 </ul>
@@ -150,7 +153,11 @@
   			</div>
 		</div>
 		<div class="imagenPlay">
+<<<<<<< HEAD
 			<a href='opciones.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario;?> &pres=1'>
+=======
+			<a href='reproductorMusica/interfazReproductor.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario?>'>
+>>>>>>> cf95646e2db4082569f190b9a883945cd6969d18
 				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 		</div>
