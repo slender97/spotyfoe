@@ -4,12 +4,8 @@
 </header>
 <body class = "fondo">
 
-<div>
-<<<<<<< HEAD
+<div style="margin-left:0px;margin-top:0px;">
 	<?php include("menuIzquierda.php"); ?>
-=======
-	<?php include("menuIzquierda.html"); ?>
->>>>>>> cf95646e2db4082569f190b9a883945cd6969d18
 </div>
 
 <div>
