@@ -6,7 +6,7 @@ form {
 }
 
 div#header {
-	font-family: tahoma;
+	font-family: 'Montserrat', serif;
 	font-size: 10px;
 	margin: -50 -50 0 -50;
 	padding: 40 20 40 0; 
@@ -16,22 +16,15 @@ div#header {
 }
 
 p#titulo{
-	font-size: 30px;
+	font-size: 35px;
 	padding-top: 50px;
 }
 
 
 div#imagen {
 	float: left;
-	padding: 70px 10px 70px 10px;
+	padding: 70px 10px 10px 60px;
 }
-
-
-
-
-
-
-
 
 
 body {
@@ -72,12 +65,6 @@ li a:hover:not(.active) {
 }
 
 
-
-
-
-
-
-
 /*Diseno del boton desplegable*/
 .dropbtn {
 	background-color: #30acc1;
@@ -91,8 +78,8 @@ li a:hover:not(.active) {
 /*posicionar el contenido del boton dropdown*/
 .dropdown {
     position: relative; 
-    top: 180px;
-    left: 120px;
+    top: 80px;
+    left: 500px;
 	display: inline-block;
 }
 
@@ -130,6 +117,6 @@ li a:hover:not(.active) {
 
 .imagenPlay{
 	position: relative;
-	top: 100px;
-	left: 20px;
+	top: 0px;
+	left: 150px;
 }
