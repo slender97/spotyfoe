@@ -1,30 +1,9 @@
-/*body{
-    margin: 0;
-    background-image: url("images/fondo4.jpg");
-    background-repeat: repeat-x;
-    background-color: inherit;
-}*/
-
-.centerTitulos{
-	text-align: center;
-	color: white;
-	font-family: verdana;
-	font-size: 25pt;
-}
-
 .center{
-	text-align: center;
-	vertical-align: middle;
-	padding: 20px;
-	margin-left: 450px;
-	margin-top: -500px;
-}
-
-#ima{
-	height: 354px;
-	width: 354px;
-	padding: 70px;
-	margin-top: 0px;
+	padding: 0;
+	margin: 0 auto;
+	margin-left: 6%;
+	margin-top: 10px;
+	background-color: #c6c6c6;
 }
 
 .botonImagen { 
@@ -41,18 +20,17 @@
 
 ul {
 	list-style-type: none;
-	margin-left: 600px;
 	margin-top: 10px;
 	padding: 10px;
-    width: 18%;
-    background-color: black;
+    width: 100%;
     position: fixed;
     height: 100%;
     overflow: auto;
 
 }
 
-li a {
+.resultado {
+	font-family: 'Montserrat', serif;
 	display: block;
 	color: #55ccee;
 	padding: 8px 0 8px 16px;
@@ -60,7 +38,25 @@ li a {
 	font-size: 16pt;
 }
 
-li a:hover:not(.active) {
+.resultado:hover:not(.active) {
 	background-color: #555;
 	color: #55ccee;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	position: fixed; 
+	overflow: hidden;
+	background-color: #1F1F1F;
+}
+
+div#content {
+	margin-left: 300px;
+    height: 100%;
+	color: white;
+}
+
+div#datos {
+	font-family: 'Montserrat', serif;
 }

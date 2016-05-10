@@ -1,4 +1,7 @@
-<html>
+<?php 
+	$codUsuario = $_GET['userID'];
+?>
+<!DOCTYPE html>
 <header>
 	<link rel = "stylesheet" href = "style/formatoLista.css">
 </header>
@@ -18,7 +21,7 @@
 	<ol>
 <?php
 	while ($arrayLista = mysqli_fetch_array($resulLista)) {
-		echo "<li class = 'LiItem'><a class = 'LiItemA' href = 'opciones.php?codCanc=".$arrayLista['Cod_cancion']."'>".$arrayLista['Nombre']."</a>".$arrayLista['Veces_escuch']."</li>";
+		echo "<li class = 'LiItem'><a class = 'LiItemA' href = 'opciones.php?codCanc=".$arrayLista['Cod_cancion']."&userID=".$codUsuario."'>".$arrayLista['Nombre']."</a>".$arrayLista['Veces_escuch']."</li>";
 	}
 ?>
 	</ol>
