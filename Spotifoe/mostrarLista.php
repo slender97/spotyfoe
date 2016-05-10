@@ -40,27 +40,29 @@
 			<div id="header">
 				<p id="titulo">¡Escucha tu lista,  <?php echo $nombreUsuario; ?>!</p>
 			</div>
-			<table id ="table1" width="600" border="1" cellpading="1" cellspacing="1" >
-				<tr>
-					<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Nombre</th>
+			<div id="datos">
+				<table id ="table1" width="600" border="1" cellpading="1" cellspacing="1" >
+					<tr>
+						<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Nombre</th>
 
-					<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Artista</th>
+						<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Artista</th>
 
-					<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Duracion</th>
+						<th style="background-color: #33AABB; color: white; font-size: 200%; font-family: Montserrat; ">Duracion</th>
 
-				</tr>
-				<?php
-					while ($cancion = mysqli_fetch_assoc($queryLista)) {
+					</tr>
+					<?php
+						while ($cancion = mysqli_fetch_assoc($queryLista)) {
 
-						echo "<tr>";
-						echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' > <a style = 'color: white' href='opciones.php?userID=$codUsuario & codCanc=".$cancion["Cod_cancion"]." ' >".$cancion["Nombre"]."</td>";
-						echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Artista']."</td>";
-						echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Duracion']."</td>";
-						echo "</tr>";
+							echo "<tr>";
+							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' > <a style = 'color: white' href='opciones.php?userID=$codUsuario & codCanc=".$cancion["Cod_cancion"]." ' >".$cancion["Nombre"]."</td>";
+							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Artista']."</td>";
+							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Duracion']."</td>";
+							echo "</tr>";
 
-					}
-				?>
-			</table>
+						}
+					?>
+				</table>
+			</div>
 		</div>
 	</div>
 </body>

@@ -14,6 +14,7 @@ div#content {
 
 div#datos {
 	font-family: 'Montserrat', serif;
+	padding-top: 20 px;
 }
 
 div#header {
@@ -26,4 +27,8 @@ div#header {
 	color:#FFFFFF;
 }
 
-
+table#table1 {
+	text-align: center;
+	margin-left:auto; 
+    margin-right:auto;
+}
