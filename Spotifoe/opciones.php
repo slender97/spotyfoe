@@ -11,7 +11,7 @@
 	$codUsuario = $_GET['userID'];
 	$conn = connect("Musica");
 
-	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
+	$queryAlbum = "SELECT album.nombre, album.imagen from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
 	$resulAlbum = mysqli_query($conn, $queryAlbum);
 	$arrayAlbum = mysqli_fetch_array($resulAlbum);
 	$queryNombre = "SELECT nombre from cancion where Cod_cancion = ".$codCancion;
@@ -116,7 +116,7 @@
 			</div>
 				<div id=dataBox>
 					<div id="imgAlbum">
-							
+						<img src="<?php echo $arrayAlbum["imagen"]?>" alt="album" width="300px" height="300px">	
 					</div>
 					<div id="datos"> <h1> <?php echo $nombreCancion; ?> </h1> 
 									   <h2>
