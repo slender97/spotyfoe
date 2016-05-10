@@ -17,6 +17,8 @@
 	$queryNombre = "SELECT nombre from cancion where Cod_cancion = ".$codCancion;
 	$resulNombre = mysqli_query($conn, $queryNombre);
 	$arrayNombre = mysqli_fetch_array($resulNombre);
+
+	$nombreAlbum = $arrayAlbum["nombre"];
 	$nombreCancion = $arrayNombre["nombre"];
 
 	$queryFecha = "SELECT fecha_lan from cancion where Cod_cancion = ".$codCancion;
@@ -116,7 +118,7 @@
 			</div>
 				<div id=dataBox>
 					<div id="imgAlbum">
-						<img src="<?php echo $arrayAlbum["imagen"]?>" alt="album" width="300px" height="300px">	
+						<img src="<?php echo $arrayAlbum["imagen"]?>" alt="<?php echo $nombreAlbum?>" width="300px" height="300px">	
 					</div>
 					<div id="datos"> <h1> <?php echo $nombreCancion; ?> </h1> 
 									   <h2>
@@ -129,7 +131,7 @@
 											mysqli_close($conn);
 										?>
 										</h2> 
-									   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
+									   <h3><?php echo $nombreAlbum?></h3> 
 									   <h3><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
 									   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
 									   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"];?>/10 <?php echo '('.$contar = $arrayContar["Cantidad"].')'; ?></h3>
