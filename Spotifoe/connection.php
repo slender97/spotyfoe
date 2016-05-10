@@ -1,12 +1,12 @@
 <?php
 function connect($db_name)
 {
-	/*$servername = "192.168.46.55";
+	$servername = "192.168.44.206";
 	$username = "MP";
-	$password = "123";*/
-	$servername = "localhost";
+	$password = "123";
+	/*$servername = "localhost";
 	$username = "root";
-	$password = "";
+	$password = "";*/
 	//$db_name = "Musica";
 	$conn = mysqli_connect($servername, $username, $password);
 	if (!$conn)		

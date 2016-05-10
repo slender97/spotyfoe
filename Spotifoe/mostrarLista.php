@@ -19,11 +19,12 @@
 
 	$conexionUsuario = connect("usuarios");
 
-	$queryLista = mysqli_query($conexion,"SELECT cancion.Cod_cancion, cancion.Nombre,artista.Nombre AS Artista ,cancion.Duracion FROM listarep, cancion,artista,artistacancion
+	$query = "SELECT cancion.Cod_cancion, cancion.Nombre,artista.Nombre AS Artista ,cancion.Duracion FROM listarep, cancion,artista,artistacancion
 	WHERE cancion.Cod_cancion = listarep.Cod_cancion AND
 	artista.Cod_artista = artistacancion.Cod_artista AND
 	artistacancion.Cod_cancion = cancion.Cod_cancion AND 
-	listarep.Usuario = '$codUsuario';");
+	listarep.Usuario = '$codUsuario';";
+	$queryLista = mysqli_query($conexion,$query);
 
 	$queryUsuario = mysqli_query($conexionUsuario,"SELECT username FROM usuario WHERE userid = '$codUsuario' ;");
 
@@ -69,5 +70,23 @@
 			?>
 		</table>
 	</div>
+	<?php
+		if (empty($_GET['pres']))
+		{
+			echo "aca";
+			?>
+			<div class="imagenPlay" style="position: relative; margin-left:650px;">
+			<a href='mostrarLista.php?userID= <?php echo $codUsuario;?> &pres=1'>
+				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
+			</a>
+			</div>
+			<?php
+		}
+		else
+		{
+			echo "aqui";
+			include("reproductorListas.php");
+		}
+	?>
 </body>
 </html>
