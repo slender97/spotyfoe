@@ -6,12 +6,11 @@
 	</title>
 	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
 	<link rel = "stylesheet" href = "style/formato2.css">
-	<!--<link rel="shortcut icon" href="images/icon.ico">-->
 	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Inconsolata">
 </head>
 <body>
 <?php
-
 
 	include ("connection.php");
 
@@ -22,9 +21,6 @@
 	$codCancion = $_GET['codCanc'];
 	$codUsuario = $_GET['userID'];
 	$conn = connect("Musica");
-
-	//echo $codUsuario;
-	//echo $codCancion;
 
 
 	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
@@ -44,11 +40,11 @@
 
 	$queryCalificacion = "SELECT ROUND(AVG(Calificacion),2) as Promedio FROM calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
 	$resulCalificacion = mysqli_query($conn, $queryCalificacion);
-	$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
+	//$arrayCalificacion = mysqli_fetch_array($resulCalificacion);
 
 	$queryContar = "SELECT COUNT(Calificacion) as Cantidad from calificacioncancion WHERE Cod_cancion = (SELECT Cod_cancion from cancion where Cod_cancion = ".$codCancion.")";
 	$resulContar = mysqli_query($conn, $queryContar);
-	$arrayContar = mysqli_fetch_array($resulContar);
+	//$arrayContar = mysqli_fetch_array($resulContar);
 	
 	//mysqli_close($conn);	
 		
@@ -137,11 +133,11 @@
 		<div class="dropdown">
 			<img src="images/puntos.png" alt="Opciones" width="50px" height="20px">
 			<div class="dropdown-content">
-				<a href="https://www.google.com.bo">Formato WAV</a>
-    			<a href="#">Formato MP3</a>
-    			<a href="#">Ver Letra</a>
+				<a href="">Formato WAV</a>
+    			<a href="">Formato MP3</a>
+    			<a href="">Ver Letra</a>
     			<a id= "Lista" href='ProcesoLista.php?userID= <?php echo $codUsuario?> &codCanc=<?php echo $codCancion?> &varAgregado=<?php echo $agregado?>'  onClick="agregarQuitarCancion()"><?php echo $tituloOpcion; ?></a>
-    			<a href="#">Agregar a favoritos</a>
+    			<a href="">Agregar a favoritos</a>
   			</div>
 		</div>
 		<div class="imagenPlay">
