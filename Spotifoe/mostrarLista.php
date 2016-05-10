@@ -54,7 +54,7 @@
 						while ($cancion = mysqli_fetch_assoc($queryLista)) {
 
 							echo "<tr>";
-							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' > <a style = 'color: white' href='opciones.php?userID=$codUsuario & codCanc=".$cancion["Cod_cancion"]." ' >".$cancion["Nombre"]."</td>";
+							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' > <a style = 'color: white' href='opciones.php?userID=$codUsuario&codCanc=".$cancion["Cod_cancion"]." ' >".$cancion["Nombre"]."</td>";
 							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Artista']."</td>";
 							echo "<td style = 'color: white; font-size: 120%; font-family: Inconsolata; ' >".$cancion['Duracion']."</td>";
 							echo "</tr>";
