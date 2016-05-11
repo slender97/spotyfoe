@@ -1,11 +1,31 @@
 .fondo{
+	margin: 0;
 	background-color:black;
+}
+
+div#container {
+	width: 100%;
+	height: 100%;
+	position: fixed; 
+	overflow: hidden;
+	background-color: #1F1F1F;
+}
+
+div#header {
+	font-family: 'Montserrat', serif;
+	text-align: center; 
+	font-size: 45px;
+	margin:0px auto;
+	margin-left: 20%;
+	border:1px solid #33AABB;
+	background-color: #33AABB; 
+	color:#FFFFFF;
 }
 
 .centerTitulos{
 	text-align: center;
 	color: white;
-	font-family: verdana;
+	font-family: 'Montserrat', serif;
 	font-size: 25pt;
 	padding: 35px 45px 35px 170px;
 }
@@ -20,7 +40,7 @@
 }
 
 .LiItem{
-	
+	font-family: 'Montserrat', serif;
 	padding: 8px 8px 18px 16px;
 }
 
