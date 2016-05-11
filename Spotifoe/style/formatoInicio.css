@@ -41,7 +41,7 @@ p#titulo{
 body{
     margin: 0;
     background-image: url("../images/fondo.jpg");
-    background-repeat: repeat;
+    background-repeat: repeat-y;
     background-color: black;
 }
 
@@ -80,19 +80,31 @@ li a:hover:not(.active) {
    background-color: black;
 }
 
-div#fila1{
+#fila1{
     display: block;
     position: relative;
     left: 250px;
     top: 50px;
 }
 
-div#fila2{
+#fila2{
     display: block;
     position: relative;
     left: 250px;
     top: 60px;
     margin-bottom: 90px;
+}
+
+.img {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+    border: 0;
+}
+
+.img:hover {
+    border: 0.5px solid #777;
+    opacity: 0.8;
 }
 
 div#frase{
