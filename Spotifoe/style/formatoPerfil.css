@@ -12,8 +12,27 @@ div#content {
 	color: white;
 }
 
+div#header {
+	font-family: 'Montserrat', serif;
+	font-size: 20px;
+	margin: -50 -50 0 -50;
+	padding: 40 20 40 0; 
+	text-align: center; 
+	background-color: #33aabb;
+	color:white;
+}
+
+p#titulo{
+	font-size: 35px;
+	padding-top: 50px;
+}
+
 div#datos {
 	font-family: 'Montserrat', serif;
+	font-size: 25px;
+	position: relative;
+	top: 100px;
+	left: 100px;
 }
 
 .button {
@@ -24,6 +43,9 @@ div#datos {
 	background-color: #33AABB; 
 	color: white;
 	border-width: 0px;
+	position: relative;
+	top: 200px;
+	left: 100px;
 }
 
 .button:hover {
@@ -36,3 +58,7 @@ div#datos {
 	border-width: 0px;
 }
 
+div#imagenPerfil{
+	float: left;
+	padding: 70px 10px 20px 400px;
+}

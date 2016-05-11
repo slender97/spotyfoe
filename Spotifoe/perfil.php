@@ -27,9 +27,19 @@
 	<link rel = "stylesheet" href = "style/formatoPerfil.css">
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Inconsolata">
 </head>
+
 <body>
 	<div id="container">
 		<?php include("menuIzquierda.php"); ?>
+		<div id="header">
+			<p id="titulo">
+				Bienvenido <?php echo $username?>;
+			</p>
+			<br>
+		</div>
+		<div id="imagenPerfil">
+			<img src="images/imagenPerfil.jpg" width="200px" height="200px">
+		</div>
 		<div id="content">
 			<div id="datos">
 				<span><b>UserID: </b><?php echo $id;?></span><br>
