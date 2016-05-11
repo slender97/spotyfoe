@@ -47,10 +47,10 @@ function reproducirUnaVezMas($codCancion)
 	mysqli_close($conn);
 }
 
-function buscarPorCancion($Nombre)
+function buscar($Nombre)
 {
 	$connection = connect("Musica");
-	$consulta = "SELECT * FROM CANCION WHERE Nombre LIKE '%$Nombre%'";
+	$consulta = "SELECT * FROM cancion where Cod_cancion IN (SELECT Cod_cancion from artistacancion WHERE cod_artista IN (SELECT cod_artista from artista WHERE nombre LIKE '%$Nombre%')) OR Cod_album IN (SELECT Cod_album from album where nombre LIKE '%$Nombre%') OR Nombre LIKE '%$Nombre%'";
 	$ejecutar_consulta = mysqli_query($connection, $consulta) or die ("No se pudo ejecutar la consulta en la BD.");
 	mysqli_close($connection);
 	return $ejecutar_consulta;

@@ -17,7 +17,13 @@
   if (empty($_GET['userID'])) {
     header("Location:../manejoUsuarios/iniciarSesion.php");
   }
-  $codCa = $_GET['codCanc'];
+  else if (empty($_GET['codCanc'])) {
+	$codCa = 1;
+  }
+  else
+  {
+	$codCa = $_GET['codCanc'];  
+  }
   ?>
 
   <iframe class="mainContent" src='reproductor.php?codCanc=<?php echo $codCa;?>' frameBorder="0"></iframe>

@@ -35,13 +35,12 @@ $codUsuario = $_GET['userID'];
 				{
 					
 					$Nombre = $_POST["buscador"];
-					$Album = $_POST["buscador"];
 
 					$connection = connect ("Musica");
 					
 						//para cancion
-					$ejecutar_consulta = buscarPorCancion($Nombre);
-
+					$ejecutar_consulta = buscar($Nombre);	
+					
 						//mostrar el resultado de la consulta, dentro de un ciclo y en una variable ingresamos la funcion mySQL fetch array (la ejecicion dela consulta la guarda en un arreglo)
 
 
@@ -61,10 +60,11 @@ $codUsuario = $_GET['userID'];
 							//echo "Album: ". $registro["Cod_album"]. "   ". $registro["Fecha_lan"]. "<br />";
 						}
 						?>
+						
 					</ul>
 					<?php
-					}
-					?>
+				}
+				?>
 			<div>
 		</div>
 	</div>
