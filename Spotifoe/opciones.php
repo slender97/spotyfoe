@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>
-		MenuDeOpciones
-	</title>
-	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
-	<link rel = "stylesheet" href = "style/formato2.css">
-	<!--<link rel="shortcut icon" href="images/icon.ico">-->
-	<link rel="shortcut icon" href="favicon.ico">
-</head>
-<body>
 <?php
 
 
@@ -23,16 +11,15 @@
 	$codUsuario = $_GET['userID'];
 	$conn = connect("Musica");
 
-	//echo $codUsuario;
-	//echo $codCancion;
-
-
-	$queryAlbum = "SELECT album.nombre from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
+	$queryAlbum = "SELECT album.nombre, album.imagen from cancion,album where album.Cod_album = (select Cod_album from cancion where Cod_cancion = ".$codCancion.")";
 	$resulAlbum = mysqli_query($conn, $queryAlbum);
 	$arrayAlbum = mysqli_fetch_array($resulAlbum);
 	$queryNombre = "SELECT nombre from cancion where Cod_cancion = ".$codCancion;
 	$resulNombre = mysqli_query($conn, $queryNombre);
 	$arrayNombre = mysqli_fetch_array($resulNombre);
+
+	$nombreAlbum = $arrayAlbum["nombre"];
+	$nombreCancion = $arrayNombre["nombre"];
 
 	$queryFecha = "SELECT fecha_lan from cancion where Cod_cancion = ".$codCancion;
 	$resulFecha = mysqli_query($conn, $queryFecha);
@@ -65,7 +52,6 @@
 	?>
 	
 	function agregarQuitarCancion() {
-
 
 		var etiqueta = document.getElementById('Lista');
 
@@ -100,70 +86,78 @@
 	?>
 
 </script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<?php echo $nombreCancion; ?>
+	</title>
+	<meta http-equiv="Content-Type" contents="text/html; charset=UTF-8">
+	<link rel = "stylesheet" href = "style/formatoOpciones.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat|Inconsolata">
+	<link rel = "shortcut icon" href="favicon.ico">
+</head>
 
-<div style="margin-left:0px;margin-top:0px;">
-	<?php include("menuIzquierda.php"); ?>
-</div>
+<body>
+	<div id="container">
+		<?php include("menuIzquierda.php"); ?>
+		<div id="content">
+		    <div id="header">
+				<p id="titulo">Escucha La Cancion Perfecta</p>
 
-<div style="margin-left:18%;padding:1px 16px;height:800px; background-color:black">
-    <div id="header">
-		<p id="titulo">Escucha La Cancion Perfecta</p>
-		<br>
-	</div>
-	<div id="imagen">
-		<img src="images/audifonoblanco.jpg" width="150px" height="150px">
-	</div>
+			</div>
+			<div class="dropdown">
+				<img src="images/puntos.png" alt="Opciones" width="50px" height="20px">
+				<div class="dropdown-content">
+					<a href="https://www.google.com.bo">Formato WAV</a>
+				    <a href="#">Formato MP3</a>
+				    <a href="#">Ver Letra</a>
+				    <a id= "Lista" href='ProcesoLista.php?userID=<?php echo $codUsuario?>&codCanc=<?php echo $codCancion?>&varAgregado=<?php echo $agregado?>'  onClick="agregarQuitarCancion()"><?php echo $tituloOpcion; ?></a>
+			   		<a href="#">Agregar a favoritos</a>
+				</div>
+			</div>
+				<div id=dataBox>
+					<div id="imgAlbum">
+						<img src="<?php echo $arrayAlbum["imagen"]?>" alt="<?php echo $nombreAlbum?>" width="300px" height="300px">	
+					</div>
+					<div id="datos"> <h1> <?php echo $nombreCancion; ?> </h1> 
+									   <h2>
+									   <?php
+											$queryArtista = "SELECT artista.nombre FROM artista, artistacancion WHERE artista.Cod_artista = artistacancion.Cod_artista and artistacancion.Cod_cancion = ".$codCancion;
+											$resulArtista = mysqli_query($conn, $queryArtista);
+											while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
+												echo $arrayArtista["nombre"]." ";
+											}
+											mysqli_close($conn);
+										?>
+										</h2> 
+									   <h3><?php echo $nombreAlbum?></h3> 
+									   <h3><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
+									   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
+									   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"];?>/10 <?php echo '('.$contar = $arrayContar["Cantidad"].')'; ?></h3>
+						</div>
+					</div>
+						<div id="botones">
+							<div id="botonImagen">
+								<a href='opciones.php?codCanc=<?php echo $codCancion; ?>&userID=<?php echo $codUsuario;?>&pres=1'>
+									<img src="images/imagen.png" alt="Boton reproductor" width="50px" height="50px" border="0"  onmouseover="this.src='images/logoW2.png';" onmouseout="this.src='images/imagen.png';">
+								</a>
+							</div>						
+						</div>
+			</div>
 
-	<form action="opciones.php" name="form1">
-
-		<div align = "center"> <h1> <?php echo $songName = $arrayNombre["nombre"]?> </h1> 
-					   <h2>
-					   <?php
-							$queryArtista = "SELECT artista.nombre FROM artista, artistacancion WHERE artista.Cod_artista = artistacancion.Cod_artista and artistacancion.Cod_cancion = ".$codCancion;
-							$resulArtista = mysqli_query($conn, $queryArtista);
-							while ($arrayArtista = mysqli_fetch_array($resulArtista)) {
-								echo $arrayArtista["nombre"]." ";
-							}
-							mysqli_close($conn);
-						?>
-						</h2> 
-					   <h3><?php echo $albumName = $arrayAlbum["nombre"]?></h3> 
-					   <h4><?php echo $fechaLanzamiento = $arrayFecha["fecha_lan"]?></h3> 
-					   <h3><?php echo $duracion = $arrayDuracion["duracion"]?></h3>
-					   <h3>CALIFICACION: <?php echo $calificacion = $arrayCalificacion["Promedio"] ?>/10</h3>
-					   <h3>NUMERO DE CALIFICACIONES: <?php echo $contar = $arrayContar["Cantidad"]?></h3> 
-		</div>
-	
-		<div class="dropdown">
-			<img src="images/puntos.png" alt="Opciones" width="50px" height="20px">
-			<div class="dropdown-content">
-				<a href="https://www.google.com.bo">Formato WAV</a>
-    			<a href="#">Formato MP3</a>
-    			<a href="#">Ver Letra</a>
-    			<a id= "Lista" href='ProcesoLista.php?userID= <?php echo $codUsuario?> &codCanc=<?php echo $codCancion?> &varAgregado=<?php echo $agregado?>'  onClick="agregarQuitarCancion()"><?php echo $tituloOpcion; ?></a>
-    			<a href="#">Agregar a favoritos</a>
-  			</div>
-		</div>
-		<div class="imagenPlay">
-			<a href='opciones.php?codCanc= <?php echo $codCancion; ?> &userID= <?php echo $codUsuario;?> &pres=1'>
-				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
-			</a>
-		</div>
-	</form>
-</div>
-
-<?php
-	if (!empty($_GET['pres'])) {
-		?>
-		<div style="margin-left:18%;margin-top:800px;">
 		<?php
-			include("reproductorMusica/interfazReproductor.php");
+			if (!empty($_GET['pres'])) {
+				?>
+				<div style="margin-left:18%;">
+				<?php
+					include("reproductorMusica/interfazReproductor.php");
+				?>
+				</div>
+				<?php
+			}
 		?>
-		</div>
-		<?php
-	}
-?>
-
+	</div>
 </body>
 </html>
 
