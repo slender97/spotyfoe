@@ -51,7 +51,7 @@
 		else{
 			url = 'reproductor.php?codCanc='+arrayCanc[pos];
 		}
-		alert(url+" "+index);
+		//alert(url+" "+index);
 		document.getElementById('myid').src = url;
 		if (url != "")
 		{

@@ -64,25 +64,25 @@
 					?>
 				</table>
 			</div>
-		</div>
-	</div>
-	<?php
+			<?php
 		if (empty($_GET['pres']))
 		{
-			echo "aca";
 			?>
-			<div class="imagenPlay" style="position: relative; margin-left:650px;">
+			<div class="imagenPlay" style="position:relative; margin-left:33%; padding: 150px;">
 			<a href='mostrarLista.php?userID= <?php echo $codUsuario;?> &pres=1'>
-				<img src="images/play.png" alt="Boton reproductor" width="55px" height="50px" border="0">
+				<img src="images/imagen.png" alt="Boton reproductor" width="55px" height="50px" border="0">
 			</a>
 			</div>
 			<?php
 		}
 		else
 		{
-			echo "aqui";
+
 			include("reproductorListas.php");
 		}
 	?>
+		</div>
+	</div>
+	
 </body>
 </html>
