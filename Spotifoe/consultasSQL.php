@@ -42,7 +42,7 @@ function getUrl($codCancion)
 function reproducirUnaVezMas($codCancion)
 {
 	$conn = connect("Musica");
-	$queryAumentar = "UPDATE cancion set Veces_escuch = Veces_escuch + 1 where Cod_cancion = ".$codCancion;
+	$queryAumentar = "UPDATE cancion set Veces_escuch = Veces_escuch + 0.5 where Cod_cancion = ".$codCancion;
 	mysqli_query($conn, $queryAumentar);
 	mysqli_close($conn);
 }

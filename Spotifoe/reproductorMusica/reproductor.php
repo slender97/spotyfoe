@@ -19,6 +19,7 @@ if(file_exists($file))
     header('X-Pad: avoid browser bug');
     header('Cache-Control: no-cache');
     readfile($file);
+    reproducirUnaVezMas($codCancion);
 }
 else
 {

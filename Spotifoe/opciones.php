@@ -144,19 +144,20 @@
 								</a>
 							</div>						
 						</div>
-			</div>
-
-		<?php
+					<?php
 			if (!empty($_GET['pres'])) {
 				?>
-				<div style="margin-left:18%;">
+				<div>
 				<?php
 					include("reproductorMusica/interfazReproductor.php");
+					
 				?>
 				</div>
 				<?php
 			}
 		?>
+			</div>
+
 	</div>
 </body>
 </html>

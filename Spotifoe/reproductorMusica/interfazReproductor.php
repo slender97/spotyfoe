@@ -25,7 +25,8 @@
 	$codCa = $_GET['codCanc'];  
   }
   ?>
+  
 
-  <iframe class="mainContent" src='reproductor.php?codCanc=<?php echo $codCa;?>' frameBorder="0"></iframe>
+  <iframe class="mainContent" src='reproductorMusica/reproductor.php?codCanc=<?php echo $codCa;?>' frameBorder="0"></iframe>
 </body>
 </html>
